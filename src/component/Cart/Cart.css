@@ -1,0 +1,7 @@
+.bodyContainer{
+    height: 100vh;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: var(--mp-2) ;
+    background-color: var(--body-color);
+}

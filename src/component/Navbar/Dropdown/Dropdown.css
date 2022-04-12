@@ -1,0 +1,58 @@
+.dropDownMenu{
+    min-width: 12.5rem;
+    height: fit-content;
+    top:4.687rem;
+    position: absolute;
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.5);
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    z-index: 1;
+}
+
+.dropDownMenu a{
+    width: 100%;
+}
+
+.dropDownMenu li{
+    background-color: var(--first-color);
+    position: relative;
+}
+
+.dropDownMenu li a{
+    color: var(--text-color);
+    text-align: left;
+    margin-left: 0.625rem;
+    margin-right: 0.625rem;
+}
+
+.dropDownMenu button:hover{
+    width: 100%;
+    background-color: var(--buttons-color);
+    text-align: left;
+    color: var(--text-color)!important;
+}
+
+.dropDownMenu{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.dropdownSubMenu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 100%;
+    border-left: none;
+}
+
+.dropdownSubMenu li:hover{
+    background-color: var(--buttons-color);
+}
+
+

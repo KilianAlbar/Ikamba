@@ -1,0 +1,52 @@
+.productPage {
+    min-height: 80vh;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: var(--mp-2);
+    background-color: var(--body-color);
+}
+.productPageTitle {
+    text-align: center;
+}
+.productBody {
+    display: flex;
+}
+.description {
+    text-align: start;
+}
+.productImg {
+    height: 100%;
+}
+.productDiv {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+div > p {
+    margin: revert;
+}
+.priceText{
+    text-align: start;
+}
+.variantBody {
+    display: flex;
+    justify-content: space-between;
+}
+.otherQttContact {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

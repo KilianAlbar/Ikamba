@@ -1,0 +1,95 @@
+
+
+.accountIcon{
+    color: var(--buttons-color);
+}
+
+.cartIcon{
+    color: var(--buttons-color);
+}
+
+.badge{
+    position: relative;
+}
+/* Badge color */
+.css-jcn4dz-MuiBadge-badge{ 
+    background-color: red !important;
+}
+
+.hideLogout{
+    display: none;
+}
+
+.showLogout{
+    display: inline;
+}
+
+.profileMenu li{
+    list-style-type: none;
+}
+
+.hidePanel{
+    display: none;
+}
+
+.showPanel{
+    display: block;
+}
+
+/* Arrow panel  */
+.bannerIcons .panelMenu::before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 28px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--panel-color);
+    transform: rotate(45deg);
+}
+
+/* Panel position */
+.bannerIcons .panelMenu{
+    position: absolute;
+    top: 3.437rem;
+    left: -8.75rem;
+    padding: 0.625rem 1.25rem;
+    background-color: var(--panel-color);
+    width: 200px;
+    height: auto;
+    z-index: 1;
+    box-sizing: 0 5px 25px rgba(0,0,0,0,1);
+    border-radius: 15px;
+    transition: 0.5s;
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.5);
+}
+
+.panelMenu li{
+    list-style-type: none;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.panelIcons{
+    max-width: 20px;
+    margin-right: 10px;
+    opacity: 0.5;
+    transition: 0.5s;
+}
+
+.bannerIcons .panelMenu li:hover .panelIcons{
+    opacity: 1;
+}
+
+.bannerIcons .panelMenu li a{
+    display: inline-block;
+    text-decoration: none;
+    color: var(--button-color);
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.bannerIcons .panelMenu li:hover a{
+    color: var(--first-color);
+}

@@ -1,0 +1,31 @@
+
+  .categories button{
+    background-color: inherit;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding-left: 0.625rem;
+    height: 100%;
+  }
+
+  .navCategories button:hover{
+    transition: 0.3s;
+    font-weight: 500;
+    color: var(--buttons-color);
+  }
+  
+  .arrowDown {
+    display: block;
+    top: 1.625rem;
+    margin-left: 0.10rem;
+    position: absolute;
+    background-color: inherit;
+  }
+
+
+  .arrowRight{
+    background-color: inherit;
+    position: absolute;
+    margin-top: -0.25rem;
+    margin-left: 0.25rem;
+  }

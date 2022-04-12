@@ -1,0 +1,66 @@
+/* ==== Imports ==== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+
+/* ==== COLORS ==== */
+:root{
+    --body-color: #E4E4E4;
+    --first-color:  #277484;
+    --second-color: #B4B4B4;
+    --buttons-color: #343A40;
+    --add-buttons-color: #277484;
+    --text-color:#CBD3DA;
+    --panel-color: gold;
+}
+
+/* === Font Size / Family === 0.25rem = 4px / 0.5rem = 8px / 1rem = 16px... */ 
+
+:root{
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size:1rem;
+    --small-font-size:0.875rem;
+    --smaller-font-size:0.75rem;
+}
+
+:root{
+    --font-roboto: 'Montserrat', sans-serif;
+    --font-libre-franklin: 'Libre Franklin', sans-serif;
+}
+
+/* ==== MARGINS/PADDINGS ==== 0.25rem = 4px / 0.5rem = 8px... */ 
+
+:root{
+    --mp-0-25: 0.25rem;
+    --mp-0-5: 0.5rem;
+    --mp-0-75: 0.75rem;
+    --mp-1: 1rem;
+    --mp-1-5: 1.5rem;
+    --mp-2: 2rem;
+    --mp-2-5: 2.5rem;
+    --mp-3: 3rem;
+    --p-nav: 1.890rem; /* Padding for nav bar = (nav height - font size)/2  */ 
+}
+
+/* === RESPONSIVE === */
+
+
+
+/* === BASE === */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-libre-franklin);
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-size: var(--normal-font-size);
+}

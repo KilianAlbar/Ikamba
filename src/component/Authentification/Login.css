@@ -1,0 +1,40 @@
+
+.loginContainer {
+    background-color: var(--body-color);
+    height: 100vh;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: var(--mp-3);
+}
+
+.loginForm > input {
+    margin: 10px;
+    width: 50%;
+    height: 35px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.loginSubmit {
+    width: 25%!important;
+    background-color: #343A40;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.redirectReset, .redirectSignup{
+    margin-top: var(--mp-1);
+    text-align: center;
+}
+
+.redirectReset a, .redirectSignup a{
+    text-decoration: none;
+    color: var(--first-color);
+    font-weight: bold;
+}

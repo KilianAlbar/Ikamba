@@ -1,0 +1,81 @@
+
+/* ==== Nav Bar ==== */
+
+.navContainer{
+    height: 4.812rem; 
+}
+
+.navContainer nav{
+    height: 100%;
+    background: var(--first-color);
+    border-top: solid black 1px;
+    border-bottom: solid black 1px;
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.5);
+    position: relative;
+}
+
+.navContainer .categories{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.navCategories{
+    display: flex;
+    align-items: center;
+    height: 4.812rem;
+    
+}
+
+.navCategories li{
+    height: var(--mp-3);
+}
+
+.navCategories a { 
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+    cursor: pointer;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/* ==== Button SignUp / Login ==== */
+
+.signUpBtn, .logOutBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--text-color);
+    height: 3rem!important;
+    width: 7.812rem!important;
+    text-align: center;
+    border-radius: 0.312rem;
+    background:var(--buttons-color)!important;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+
+.signUpBtn:hover{
+    list-style-type: none;
+    text-decoration: none;
+    color: var(--text-color);
+    height: 3rem!important;
+    width: 7.812rem!important;
+    text-align: center;
+    border-radius: 0.312rem;
+    background:var(--buttons-color)!important;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.showMail{
+    border: 20px solid red;
+}

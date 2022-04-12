@@ -1,0 +1,37 @@
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E4E4E4;
+    margin: auto;
+    width: 65%;
+    height: 90vh;
+}
+
+.contactForm {
+    display: flex;
+    flex-direction: column;
+    margin: 3.125rem;
+}
+
+.contactInfo {
+    text-align: center;
+}
+
+.contactFullName {
+    display: flex;
+}
+
+.contactForm > input {
+    margin: 0.937rem;
+    height: 2.5rem;
+}
+
+.contactFullName > input {
+    margin: 0.937rem;
+    height: 2.5rem;
+}
+
+.contactSubmit {
+    position: relative;
+}

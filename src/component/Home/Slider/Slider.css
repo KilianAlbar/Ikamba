@@ -1,0 +1,17 @@
+
+.homeSlider{
+  width: 70%;
+  margin:auto;
+}  
+
+.sliderImg{
+  margin-top: var(--mp-3);
+}
+
+.sliderImg img{
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
+  height: 100%;
+  width: auto;
+}
