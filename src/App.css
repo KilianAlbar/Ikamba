@@ -10,7 +10,7 @@
     --buttons-color: #343A40;
     --add-buttons-color: #277484;
     --text-color:#CBD3DA;
-    --panel-color: gold;
+    --panel-color: white;
 }
 
 /* === Font Size / Family === 0.25rem = 4px / 0.5rem = 8px / 1rem = 16px... */ 
@@ -63,4 +63,22 @@ html{
 
 body{
     font-size: var(--normal-font-size);
+}
+
+.pageContainer{
+    position: relative;
+    height: 100%;
+}
+
+.bodyContainer{
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-bottom: 150px;
+    padding-top: var(--mp-2) ;
+    background-color: var(--body-color);
+}
+
+.loading{
+    font-size: 30px;
+    text-align: center;
 }

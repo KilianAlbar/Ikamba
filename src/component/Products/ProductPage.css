@@ -1,52 +1,67 @@
-.productPage {
-    min-height: 80vh;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-top: var(--mp-2);
+
+.productPage{
+    margin-top: 5vh!important;
+    margin: auto;
+    width: 856px;
+    height: 680px;
+    border-radius: 5px;
+    border: 1px solid black;
+    box-shadow: 0 4px 5px -2px rgba(0,0,0,.5);
     background-color: var(--body-color);
 }
-.productPageTitle {
-    text-align: center;
-}
-.productBody {
+
+.productTop{
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-.description {
-    text-align: start;
+
+.product{
+    padding-top: var(--mp-0-75);
+    padding-bottom: var(--mp-0-75);
 }
-.productImg {
-    height: 100%;
-}
-.productDiv {
-    margin: auto;
+
+.productDiv{
     display: flex;
     flex-direction: column;
+    margin-left: var(--mp-3);
+    margin-right: var(--mp-3);
 }
-div > p {
-    margin: revert;
+
+.productDiv h1{
+    text-align: center;
+    font-size: 30px;
 }
-.priceText{
-    text-align: start;
+
+
+.descriptionDiv{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
 }
-.variantBody {
+
+.variantBody{
     display: flex;
     justify-content: space-between;
 }
-.otherQttContact {
+
+.otherQttContact{
     text-align: center;
-    padding-bottom: 50px;
+    margin-bottom: var(--mp-0-75);
 }
 
+div > p {
+    margin: revert;
+}
 
-
-
-
-
-
-
-
-
-
+.closeModalBtn {
+    padding: 1rem;
+    background-color: #343A40;
+    color: #fff;
+    border-radius: 0.5rem;
+    margin-left: 48%;
+    margin-top: 0.25rem;
+}
 
 
 

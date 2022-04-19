@@ -21,7 +21,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import i18n from '../../../data/i18n';
 
 
-export default function Searchbar() {
+export default function Searchbar({totalItems}) {
   const [inputText, setInputText] = useState("");
     let inputHandler = (e) => {
         //convert input text to lower case
@@ -64,7 +64,7 @@ export default function Searchbar() {
     <div className='searchBarContainer'>
         <img src={Logo} alt="" className="logo" />
         <div>
-          <ProfilePanel/>
+          <ProfilePanel totalItems={totalItems}/>
         </div>
         
     </div>

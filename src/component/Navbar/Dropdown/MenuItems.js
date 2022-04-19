@@ -31,8 +31,6 @@ export default function MenuItems({items, depthLevel}) {
       }
     }
 
-    
-
   return (
       <li className="navCategories" onMouseEnter={() => setDropdown((prev) =>!prev)} onMouseLeave={() => setDropdown(false)}>
         {items.submenu ? (

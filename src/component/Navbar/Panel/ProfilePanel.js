@@ -20,7 +20,7 @@ import { Badge } from '@mui/material';
 import Cart from '../../Cart/Cart';
 import ChangeLanguages from '../Traduction/ChangeLanguages';
 
-export default function ProfilePanel() {
+export default function ProfilePanel({totalItems}) {
 
     const [error, setError] = useState("")
     const { logout, currentUser } = useAuth();
@@ -66,7 +66,7 @@ export default function ProfilePanel() {
   return (
         <div className='bannerIcons'>
                 <button className='accountIcon' onClick={() => setPanel(!panel)}><PersonIcon/></button>
-                <Link className='cartIcon' to='./cart'><Badge className="badge" badgeContent={1} color="secondary"><ShoppingCartIcon/></Badge></Link>
+                <Link className='cartIcon' to='./cart'><Badge className="badge" badgeContent={totalItems} color="secondary"><ShoppingCartIcon/></Badge></Link>
                 <ChangeLanguages/>
             <div className={`panelMenu ${panel ? 'showPanel' : 'hidePanel'}`} onMouseLeave={() => setPanel(false)}>
                 <Panel/>

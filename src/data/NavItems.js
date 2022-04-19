@@ -7,7 +7,7 @@ export const navItems =[
 },
 {
     id: 2,
-    title: 'Oled',
+    title: 'Oled Materials',
     path:'./oled',
     cName: 'navCategories',
     submenu: [
@@ -36,7 +36,7 @@ export const navItems =[
             {
                 id: 3,
                 title: 'Other hole transport materials',
-                path:'hole-transport-materials',
+                path:'other-hole-transport-materials',
                 cName: 'navSubContent',
                 subCategory:'Hole Transport Materials'
                     
@@ -74,7 +74,7 @@ export const navItems =[
             {
                 id: 3,
                 title: 'Lactones',
-                path:'lactone',
+                path:'lactones',
                 cName: 'navSubContent',
                 subCategory:'Screening Compounds'
             },
@@ -138,7 +138,7 @@ export const navItems =[
                 {
                     id: 6,
                     title: 'Tetrazines',
-                    path:'./fine-chemistry/hole-transport-materials/tetrazines',
+                    path:'tetrazines',
                     cName: 'navSubContent',
                     subCategory:'Organic Intermediates'
                 },

@@ -21,49 +21,59 @@ import { useState, useEffect } from 'react';
 // === Dependencies 
 import {BrowserRouter as Router, Routes, Route, useParams} from 'react-router-dom'
 import { commerce } from './lib/commerce';
+import { ConstructionOutlined } from '@mui/icons-material';
 
 
 function App() {
 
-  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
   
-  const fetchProducts = async () =>{
-    await commerce.products.list({
-      limit: 200,
-      category_slug: 'carbonate' 
-    }).then((data)=>setProducts(data.data));
-  }
-
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
 }
 
-const handleAddToCart = async(productId, quantity) => {
-    const item = await commerce.cart.add(productId, quantity)
-    setCart(item.cart);
+const handleAddToCart = async(productId, quantity, variantData) => {
+  const {cart} = await commerce.cart.add(productId, quantity, variantData)
+  setCart(cart);
 }
 
+const handleUpdateCartQty = async (productId, quantity) => {
+  const {cart} = await commerce.cart.update(productId, {quantity});
+  setCart(cart)
+}
+
+const handleRemoveFromCart = async (productId) => {
+  const {cart} = await commerce.cart.remove(productId);
+  setCart(cart)
+}
+
+const handleEmptyCart = async () => {
+  const {cart} = await commerce.cart.empty();
+  setCart(cart)
+}
+
+
   useEffect(()=>{
-      fetchProducts();
       fetchCart();
   }, []);
 
   return (
     <Router>
       <AuthProvider>
-      <div>
-        <Searchbar/>
+      <div className='pageContainer'>
+        <Searchbar totalItems={cart.total_items}/>
         <Navbar/>
+        <div className='bodyContainer'>
         <Routes>
           <Route exact path='/' element={<Home/>}/>
-          <Route path='/products/:path' element={<Products addToCart={handleAddToCart} products={products}/>}/>
+          <Route path='/products/:path' element={<Products onAddToCart={handleAddToCart}/>}/>
           <Route path='/contact' element={<Contact/>}/>
-          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/cart' element={<Cart cart={cart} handleUpdateCartQty={handleUpdateCartQty} handleRemoveFromCart={handleRemoveFromCart} handleEmptyCart={handleEmptyCart}/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/forgot-password' element={<ResetPassword/>}/>
         </Routes>
+        </div>
         <Footer/>
       </div>
       </AuthProvider>

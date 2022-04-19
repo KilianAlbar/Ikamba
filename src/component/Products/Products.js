@@ -11,11 +11,20 @@ import ProductPage from './ProductPage';
 import {useParams } from 'react-router-dom';
 import AddToCart from '../Cart/AddToCart';
 import Modal from 'react-modal';
+import { commerce } from '../../lib/commerce';
 
-export default function Products({submenus, products, addToCart}) {
+export default function Products({submenus, onAddToCart}) {
 
   const [singleProduct, setSingleProduct] = useState('');
+  const [products, setProducts] = useState([]);
   let {path} = useParams();
+
+  const fetchProducts = async () =>{
+    await commerce.products.list({
+      limit: 200,
+      category_slug: [path],
+    }).then((data)=>setProducts(data.data));
+  }
 
   Modal.setAppElement('#root');
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -25,23 +34,23 @@ export default function Products({submenus, products, addToCart}) {
     singleProduct != '' ? setIsOpen(true): setIsOpen(false);
   }
 
+  useEffect(()=>{
+    fetchProducts();
+  }, [path]);
+
     return (
       <div className='productBody'>
-        {products.length > 0 ? <h2 className='categoryTitle'>{products[0].categories[0].name}</h2>:<div></div>}
+        {products.length > 0 ? <h2 className='categoryTitle'>{products[0].categories[0].name}</h2>:<div className='loading'>Loading...</div>}
         <div className="gridContainer">
           {products.map((product) => 
           <div key={product.id} className="productsDiv">
               {product.categories.map((category) => {
-                if(category.slug == path){
                   return <div className='product' key={product.id} onClick={() => handleClick(product.name)} style= {{cursor:"pointer"}}>
                   <h1 className="productTitle">{product.name}</h1>
-                  <img className='productImg' src={product.image.url} />
-                  <button onClick={() => addToCart(product.id, 1)}></button>
+                  
+                  <img className='productImg' src={product.image.url} item={products}/>
                 </div>
-                }else{
-                  console.log(product)
-                }
-                 
+                
               })}
           </div>
           )}
@@ -50,8 +59,8 @@ export default function Products({submenus, products, addToCart}) {
           className='productModal'
           isOpen={modalIsOpen}
         >
-              <ProductPage productName={singleProduct}/>
-              <button className='closeModalBtn' onClick={()=>setIsOpen(false)}>close</button>
+              <ProductPage productName={singleProduct} setIsOpen={setIsOpen} onAddToCart={onAddToCart}/>
+  
         </Modal>
       </div>
     )
