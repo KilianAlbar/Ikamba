@@ -6,11 +6,15 @@ import { commerce } from '../../lib/commerce';
 import { Link } from 'react-router-dom';
 
 
-export default function ProductPage({productName, onAddToCart, setIsOpen}) {
+export default function ProductPage({productName, onAddToCart, setIsOpen, variantInfos}) {
     
     const [product, setProduct] = useState([]);
     const [variants, setVariants] = useState([]);
+    const [renderCount, setRenderCount] = useState(0);
+
     const fetchProducts = async () =>{
+      setRenderCount(() => renderCount+1);
+      if(renderCount <= 2){
         await commerce.products.list({
           query: productName.toLowerCase(),
         }).then((data)=>setProduct(data.data))
@@ -18,14 +22,15 @@ export default function ProductPage({productName, onAddToCart, setIsOpen}) {
           .then((variants) => setVariants(variants.data))
           );
       }
+      }
+        
       useEffect(()=>{
           fetchProducts();
       }, [product]);
-  
 
     return(
         <div>
-            { product.length > 0 ?
+            {  product.length > 0 ?
               <div className='productPage'>
                 <div className="productTop">
                   <h1 className='productPageTitle'>{product[0].name}</h1>
