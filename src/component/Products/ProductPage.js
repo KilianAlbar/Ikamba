@@ -6,11 +6,14 @@ import { commerce } from '../../lib/commerce';
 import { Link } from 'react-router-dom';
 
 
-export default function ProductPage({productName, onAddToCart, setIsOpen, variantInfos}) {
+export default function ProductPage({productName, onAddToCart, setIsOpen}) {
     
     const [product, setProduct] = useState([]);
     const [variants, setVariants] = useState([]);
     const [renderCount, setRenderCount] = useState(0);
+    const [qty, setQty] = useState(1);
+    const [arrayPrices, setArrayPrices] = useState([])
+
 
     const fetchProducts = async () =>{
       setRenderCount(() => renderCount+1);
@@ -28,6 +31,11 @@ export default function ProductPage({productName, onAddToCart, setIsOpen, varian
           fetchProducts();
       }, [product]);
 
+
+      const getInputQty = (event) =>{
+        setQty(event.target.value);
+      }
+
     return(
         <div>
             {  product.length > 0 ?
@@ -41,17 +49,18 @@ export default function ProductPage({productName, onAddToCart, setIsOpen, varian
                   <div className='productDiv'>
                     <div className='descriptionDiv'>
                       <div className='description' dangerouslySetInnerHTML={{ __html: product[0].description}}/>
-                      <p className='priceText'>Starting at: {product[0].price.formatted_with_symbol}</p>
+                      <p className='priceText'>{product[0].price.formatted_with_symbol}<button className='addBtn' onClick={() => onAddToCart(product[0].id, qty)}>Add</button><input className='qtyInput' placeholder='1' onChange={getInputQty} /></p>
+                      
                       
                     </div>
 
                     {variants ?
                    <div className='variantsDiv'>
-                    <h4>Other Quantities</h4>
+                    <h4>Packing</h4>
                     {variants.map((variant)=>
                       <div className='variantBody' key={variant.id}>
                         <div>{variant.description}</div>
-                        <div>{variant.price.formatted_with_symbol}</div>
+                        <div>{variant.price.formatted_with_symbol}<button className='addBtn' onClick={() => onAddToCart(product[0].id, qty, variant.id)}>Add</button><input className='qtyInput' placeholder='1' onChange={getInputQty} /></div>
                       </div>
                     )}
                   </div>

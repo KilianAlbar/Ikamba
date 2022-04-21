@@ -15,11 +15,12 @@ export default function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, h
 
   const FilledCart = () => {
     return (
-    <>
+    <div className='cartPage'>
       <div className='cartDetails'>
         <div className='cartTitles'>
           <div>Name</div>
           <div>Price</div>
+          <div>Packing</div>
           <div>Quantity</div>
         </div>
       {cart.line_items.map((item) =>(
@@ -28,6 +29,7 @@ export default function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, h
           <div className="priceContainer">
             <div className='priceDetails'>{item.line_total.formatted_with_symbol}</div>
           </div>
+          <div className='packingContainer'></div>
             <div className='qtyContainer'>
               <button className='removeQty' onClick={() => handleUpdateCartQty(item.id, item.quantity -1)}>-</button>
               <div className='qtyDetails'>{item.quantity}</div>
@@ -45,7 +47,7 @@ export default function Cart({cart, handleUpdateCartQty, handleRemoveFromCart, h
           <button className="checkoutBtn">Checkout</button>
         </div>
       </div>
-    </>
+    </div>
     )};
 
     if(!cart.line_items) return <span className='loading'>Loading...</span>  
