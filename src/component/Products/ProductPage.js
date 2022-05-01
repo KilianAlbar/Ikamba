@@ -49,9 +49,6 @@ export default function ProductPage({productName, onAddToCart, setIsOpen}) {
                   <div className='productDiv'>
                     <div className='descriptionDiv'>
                       <div className='description' dangerouslySetInnerHTML={{ __html: product[0].description}}/>
-                      <p className='priceText'>{product[0].price.formatted_with_symbol}<button className='addBtn' onClick={() => onAddToCart(product[0].id, qty)}>Add</button><input className='qtyInput' placeholder='1' onChange={getInputQty} /></p>
-                      
-                      
                     </div>
 
                     {variants ?

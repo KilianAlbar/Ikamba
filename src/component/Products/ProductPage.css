@@ -71,5 +71,8 @@ div > p {
     margin-top: 0.25rem;
 }
 
-
+.qtyInput{
+    width: 30px;
+    text-align: center;
+}
 
