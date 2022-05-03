@@ -1,0 +1,14 @@
+.LegalNotice {
+    background-color: #C4C4C4;
+    text-align: justify;
+    text-align-last: center;
+    width: 80%;
+    margin: auto;
+    min-height: 80vh;
+    padding-top: 15px;
+}
+
+.LegalNotice > h1 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

@@ -16,6 +16,9 @@ import PrivateRoute from './component/PrivateRoute';
 import ProfilePanel from './component/Navbar/Panel/ProfilePanel';
 import { AuthProvider } from './contexts/AuthContext';
 import { useState, useEffect } from 'react';
+import CheckOut from './component/Payment/CheckOut/CheckOut';
+import LegalNotice from './component/legalnotice/LegalNotice';
+import UserDashboard from './component/UserDashboard/UserDashboard';
 
 
 // === Dependencies 
@@ -27,6 +30,8 @@ import { ConstructionOutlined } from '@mui/icons-material';
 function App() {
 
   const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState('');
   
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve())
@@ -52,6 +57,23 @@ const handleEmptyCart = async () => {
   setCart(cart)
 }
 
+const refreshCart = async () => {
+  const newCart = await commerce.cart.refresh();
+
+  setCart(newCart);
+};
+
+const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+  try {
+    const incomingOrder = await commerce.checkout.capture(checkoutTokenId, newOrder);
+
+    setOrder(incomingOrder);
+
+    refreshCart();
+  } catch (error) {
+    setErrorMessage(error.data.error.message);
+  }
+};
 
   useEffect(()=>{
       fetchCart();
@@ -72,6 +94,9 @@ const handleEmptyCart = async () => {
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/forgot-password' element={<ResetPassword/>}/>
+          <Route path='/legalnotice' element={<LegalNotice/>} />
+          <Route path='/checkout' element={<CheckOut cart={cart} order={order} onCaptureCheckout={handleCaptureCheckout} error={errorMessage} />} />
+          <Route path='/dashboard' element={<UserDashboard/>} />
         </Routes>
         </div>
         <Footer/>
